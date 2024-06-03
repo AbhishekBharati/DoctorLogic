@@ -45,7 +45,10 @@ app.post("/", (req, res) => {
 
 // Handling PUT requeust:-
 app.put("/", (req, res) => {
-
+  for (let i = 0; i < users[0].kidneys.length; i++) {
+    users[0].kidneys[i].healthy = true;
+  }
+  res.json({});
 })
 
 // Handling DELETE request :-
