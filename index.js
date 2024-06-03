@@ -52,8 +52,20 @@ app.put("/", (req, res) => {
 })
 
 // Handling DELETE request :-
+// It removes the unhealthy kidneys :-
 app.delete("/", (req, res) => {
-
+  const newKidneys = [];
+  for (let i = 0; i < users[0].kidneys.length; i++) {
+    if (users[0].kidneys[i].healthy) {
+      newKidneys.push({
+        healthy: true
+      })
+    }
+  }
+  users[0].kidneys = newKidneys;
+  res.json({
+    msg: "Done"
+  })
 })
 
 // Backend is listening at port 3000.
